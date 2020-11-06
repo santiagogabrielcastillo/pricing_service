@@ -25,6 +25,7 @@ def new_store():
         query = json.loads(request.form['query'])
 
         Store(name, url_prefix, tag_name, query).save_to_mongo()
+        return redirect(url_for('stores.index'))
 
     return render_template('stores/new_store.html')
 

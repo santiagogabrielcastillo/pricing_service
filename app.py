@@ -10,10 +10,12 @@ app.secret_key = 'my_secret_key'
 app.config.update(
     ADMIN=os.environ.get('ADMIN')
 )
-print('')
+
+
 @app.route('/')
 def home():
     return render_template('home.html')
+
 
 app.register_blueprint(users_bp, url_prefix='/users')
 app.register_blueprint(alert_bp, url_prefix="/alerts")

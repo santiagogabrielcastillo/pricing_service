@@ -29,6 +29,7 @@ def new_alert():
         item.save_to_mongo()
 
         Alert(alert_name, item._id, price_limit, session['email']).save_to_mongo()
+        return redirect(url_for('alerts.index'))
     return render_template('alerts/new_alert.html')
 
 
